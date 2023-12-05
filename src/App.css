@@ -1,0 +1,30 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+.App{
+  background-color: black;
+  height: 500vh;
+  width: 100vw;
+  top: 0;
+  position: relative;
+  transition: 0.7s ease;
+}
+
+.view{
+  width: 1200px;
+  height: 100vh;
+  padding: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border{
+  border: 1px solid white;
+  width: 100%;
+  height: 100%;
+}
