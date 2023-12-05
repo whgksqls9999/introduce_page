@@ -20,7 +20,7 @@ function App() {
 
     window.addEventListener("keyup", (e) => {
       doPageCal(e);
-      doScrollMove(true);
+      doScrollMove();
     });
 
     window.addEventListener(
@@ -28,15 +28,10 @@ function App() {
       (e) => {
         e.preventDefault();
         doPageCal(e);
-        doScrollMove(true);
+        doScrollMove();
       },
       { passive: false }
     );
-
-    // 윈도우 창 크기 변경 시 현재 페이지 추적해서 출력
-    window.addEventListener("resize", () => {
-      doScrollMove(false);
-    });
 
     /**
      * 화면에 출력된 페이지를 계산하는 함수
@@ -69,13 +64,12 @@ function App() {
 
     /**
      * 화면에 출력될 페이지에 맞춰 스크롤을 이동시키는 함수
-     * @param {boolean} isSmooth 부드러운 동작 여부
      */
-    function doScrollMove(isSmooth) {
+    function doScrollMove() {
       window.scrollTo({
         top: `${page * window.innerHeight}`,
         left: 0,
-        behavior: `${isSmooth ? "smooth" : "auto"}`,
+        behavior: "smooth",
       });
     }
 
