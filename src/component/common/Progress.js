@@ -15,7 +15,7 @@ function Progress() {
       {pages.map((val, idx) => (
         <button
           className={`${idx} progress-box-button${
-            state.page == idx ? " active" : ""
+            state.page === idx ? " active" : ""
           }`}
           key={idx}
           onClick={() => {

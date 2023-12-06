@@ -4,6 +4,7 @@
   padding: 0;
   overflow: hidden;
   font-family: GmarketSansMedium;
+  color: white;
 }
 
 .App{
@@ -79,11 +80,81 @@
   color: white;
   opacity: 0;
   transition: opacity 0.3s;
+  font-family: omyu_pretty;
+  font-size: 1rem;
+}
+
+.mainview-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.mainview-title{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 7rem;
+}
+
+.mainview-title div{
+  font-family: omyu_pretty;
+}
+
+.title{
+  font-size: 3rem;
+  margin: 1rem;
+  border-bottom: 1px solid white;
+  padding: 0.3rem;
+}
+
+.info-profile{
+  display: flex;
+  border-bottom: 1px solid white;
+  margin: 1rem;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.profile-img{
+  background-color: #cccccc;
+  width: 160px;
+  height: 202px;
+  border-radius: 10px;
+}
+
+.profile-info{
+  margin-left: 13px;
+}
+
+.profile-name{
+  font-size: 3rem;
+  letter-spacing: 10px;
+  height: 50px;
+}
+
+.profile-name-eng{
+  font-size: 1.9rem;
+}
+
+.profile-birthday{
+  font-size: 1.9rem;
+}
+
+
+.info-detail-tab{
+  display: flex;
 }
 
 @font-face {
   font-family: 'GmarketSansMedium';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }

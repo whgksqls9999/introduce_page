@@ -6,7 +6,7 @@ import InterestsView from "./view/InterestsView.js";
 import ContactView from "./view/ContactView.js";
 import Progress from "./component/common/Progress.js";
 
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage } from "./store.js";
 import { setPages } from "./store.js";
@@ -69,9 +69,9 @@ function App() {
         }
         break;
       case "keyup":
-        if (e.key == "ArrowUp") {
+        if (e.key === "ArrowUp") {
           page--;
-        } else if (e.key == "ArrowDown") {
+        } else if (e.key === "ArrowDown") {
           page++;
         }
         break;
