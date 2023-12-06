@@ -26,16 +26,19 @@ function App() {
       window.scrollTo(0, 0);
     };
 
+    // 윈도우 창 크기 변했을 때 페이지 화면에 맞추기
     window.addEventListener("resize", () => {
       doScrollMove(false);
     });
 
+    // 방향키 눌러서 페이지 이동
     window.addEventListener("keyup", (e) => {
       if (e.key === "ArrowUp" || e.key === "ArrowDown") {
         doPageCal(e, lastPage);
       }
     });
 
+    // 마우스 휠 굴려서 페이지 이동
     window.addEventListener(
       "wheel",
       (e) => {
@@ -44,19 +47,18 @@ function App() {
       },
       { passive: false }
     );
-
-    /**
-     * 화면에 출력된 페이지를 계산하는 함수
-     * @param {Object} e
-     */
   }, []);
 
   useEffect(() => {
     page = state.page;
     doScrollMove(true);
-    console.log(page, state.page);
   }, [state.page]);
 
+  /**
+   * 이동할 다음 페이지 계산
+   * @param {Object} e
+   * @param {Number} lastPage
+   */
   function doPageCal(e, lastPage) {
     switch (e.type) {
       case "wheel":
@@ -84,7 +86,8 @@ function App() {
   }
 
   /**
-   * 화면에 출력될 페이지에 맞춰 스크롤을 이동시키는 함수
+   * 계산된 페이지로 스크롤 이동
+   * @param {boolean} isSmooth
    */
   function doScrollMove(isSmooth) {
     window.scrollTo({
