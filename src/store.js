@@ -23,9 +23,22 @@ let pages = createSlice({
 });
 export let { setPages } = pages.actions;
 
+// component/info/InfoDetail*.js
+let infoTab = createSlice({
+  name: "infoTab",
+  initialState: 0,
+  reducers: {
+    setInfoTab(state, action) {
+      return action.payload;
+    },
+  },
+});
+export let { setInfoTab } = infoTab.actions;
+
 export default configureStore({
   reducer: {
     page: page.reducer,
     pages: pages.reducer,
+    infoTab: infoTab.reducer,
   },
 });
