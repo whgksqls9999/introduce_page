@@ -3,17 +3,24 @@ import { useEffect, useState } from "react";
 import InfoDetailContent from "./InfoDetailContent";
 
 export default function InfoDetailTab() {
-  let buttons = document.querySelectorAll(".info-detail-tab-button");
   let [selected, setSelected] = useState(0);
+  let buttons = [];
 
   useEffect(() => {
-    buttons.forEach((element) => element.classList.toggle("selected-tab"));
+    buttons = document.querySelectorAll(".info-detail-tab-button");
     buttons.forEach((element, i) =>
       element.addEventListener("click", () => {
         setSelected(i);
+        for (let j = 0; j < buttons.length; ++j) {
+          if (j === i) {
+            buttons[j].classList.add("selected-tab");
+          } else {
+            buttons[j].classList.remove("selected-tab");
+          }
+        }
       })
     );
-  }, [selected]);
+  }, []);
 
   return (
     <>

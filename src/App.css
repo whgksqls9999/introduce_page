@@ -145,8 +145,13 @@
 .info-detail-tab{
   display: flex;
   align-items: end;
-  margin: 16px;
+  margin: 12px 16px;
   gap: 12px;
+  height: 35px;
+}
+
+.info-detail-tab-button{
+  transition: font-size 0.3s ease;
 }
 
 .info-detail-tab-button:hover{
@@ -155,7 +160,7 @@
 
 .selected-tab{
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .info-detail-content{
