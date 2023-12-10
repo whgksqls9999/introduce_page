@@ -47,7 +47,7 @@ function App() {
       },
       { passive: false }
     );
-  }, []);
+  });
 
   useEffect(() => {
     page = state.page;
@@ -91,7 +91,7 @@ function App() {
    */
   function doScrollMove(isSmooth) {
     window.scrollTo({
-      top: `${page * window.innerHeight}`,
+      top: `${state.page * window.innerHeight}`,
       left: 0,
       behavior: `${isSmooth ? "smooth" : "auto"}`,
     });
