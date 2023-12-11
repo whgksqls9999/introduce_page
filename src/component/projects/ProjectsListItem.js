@@ -1,4 +1,7 @@
+import { useDispatch } from "react-redux";
+
 export default function ProjectsListItem(props) {
+  let dispatch = useDispatch();
   return (
     <div className="projects-list-item">
       <div className="projects-list-item-hover"></div>
