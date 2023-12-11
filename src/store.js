@@ -35,10 +35,34 @@ export let { setPages } = pages.actions;
 // });
 // export let { setInfoTab } = infoTab.actions;
 
+let isProjectOpen = createSlice({
+  name: "isProjectOpen",
+  initialState: false,
+  reducers: {
+    toggleIsProjectOpen(state) {
+      return !state;
+    },
+  },
+});
+export let { toggleIsProjectOpen } = isProjectOpen.actions;
+
+let openedProject = createSlice({
+  name: "openedProject",
+  initialState: 0,
+  reducers: {
+    setOpenedProject(state, action) {
+      return action.payload;
+    },
+  },
+});
+export let { setOpenedProject } = openedProject.actions;
+
 export default configureStore({
   reducer: {
     page: page.reducer,
     pages: pages.reducer,
     // infoTab: infoTab.reducer,
+    isProjectOpen: isProjectOpen.reducer,
+    openedProject: openedProject.reducer,
   },
 });

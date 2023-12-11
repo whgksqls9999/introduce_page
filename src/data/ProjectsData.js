@@ -1,5 +1,6 @@
 let projects = [
   {
+    id: 0,
     img: "img/habing.jpg",
     title: "HABING",
     outline: "Spring boot, Vue.js를 활용한 커뮤니티 사이트 구축",
@@ -7,6 +8,7 @@ let projects = [
     headCount: "2인",
   },
   {
+    id: 1,
     img: "img/introduce.jpg",
     title: "Introduce page",
     outline: "React를 활용한 개인 포트폴리오 사이트 구축",
@@ -14,6 +16,7 @@ let projects = [
     headCount: "1인",
   },
   {
+    id: 2,
     img: "img/introduce.jpg",
     title: "테스트3",
     outline: "테스트",
@@ -21,6 +24,7 @@ let projects = [
     headCount: "1인",
   },
   {
+    id: 3,
     img: "img/introduce.jpg",
     title: "테스트4",
     outline: "테스트",

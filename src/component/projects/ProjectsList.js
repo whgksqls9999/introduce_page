@@ -28,6 +28,7 @@ export default function ProjectsList() {
               onClick={() => {
                 doPageChange(idx + 1);
               }}
+              key={idx}
             >
               {idx + 1}
             </button>
