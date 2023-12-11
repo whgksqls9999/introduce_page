@@ -152,6 +152,7 @@
 
 .info-detail-tab-button{
   transition: font-size 0.3s ease;
+  cursor: pointer;
 }
 
 .info-detail-tab-button:hover{
@@ -176,17 +177,42 @@
 
 .projects-list-content{
   height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .projects-list-pages{
   height: 30px;
   width: 100%;
-  border: 3px dotted white;
+  /* border: 3px dotted white; */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.projects-list-pages button{
+  background-color: transparent;
+  border: 1px solid white;
+  width: 20px;
+  transition: all 0.2s;
+}
+
+.projects-list-pages button:hover {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+.projects-list-pages button:active {
+  background-color: black;
+  color: white;
+  /* font-weight: bold; */
 }
 
 .projects-list-item{
   height: 200px;
-  border: 2px white dotted;
+  /* border: 2px white dotted; */
   margin: 1rem;
   width: 900px;
   position: relative;
@@ -194,6 +220,15 @@
   border-radius: 20px;
   display: flex;
   padding: 1rem;
+  animation: fadein 1s ease; 
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
 }
 
 .projects-list-item-hover{
@@ -204,19 +239,30 @@
   left: 0;
   background: linear-gradient(20deg, rgb(255,255,255,0.2), rgb(255,255,255,0));
   opacity: 0;
-  transform: all 1s;
+  transition: all 0.3s;
 }
 
 .projects-list-item-thumbnail{
-  background-color: orange;
+  /* background-color: orange; */
   width: 35%;
   padding: 0.4rem;
+  display: flex;
+}
+
+.projects-list-item-thumbnail img{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projects-list-item-content{
-  background-color: violet;
+  /* background-color: violet; */
   width: 65%;
   padding: 0.4rem;
+}
+
+.projects-list-item-content-title{
+  height: 60px;
+  line-height: 1;
 }
 
 .projects-list-item:hover > .projects-list-item-hover{
