@@ -1,3 +1,5 @@
+import ContactList from "../component/contact/ContactList";
+
 import React from "react";
 
 const ContactView = React.memo(() => {
@@ -6,6 +8,7 @@ const ContactView = React.memo(() => {
     <div className="view">
       <div className="border">
         <div className="title">CONTACT</div>
+        <ContactList />
       </div>
     </div>
   );
