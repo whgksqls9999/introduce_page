@@ -1,7 +1,9 @@
 import InfoProfile from "../component/info/InfoProfile";
 import InfoDetailTab from "../component/info/InfoDetailTab";
+import React from "react";
 
-function InfoView() {
+const InfoView = React.memo(() => {
+  console.log("info");
   return (
     <div className="view">
       <div className="border">
@@ -11,6 +13,6 @@ function InfoView() {
       </div>
     </div>
   );
-}
+});
 
 export default InfoView;

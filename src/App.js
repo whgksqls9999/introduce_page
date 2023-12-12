@@ -6,53 +6,52 @@ import InterestsView from "./view/InterestsView.js";
 import ContactView from "./view/ContactView.js";
 import Progress from "./component/common/Progress.js";
 
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setPage } from "./store.js";
-import { setPages } from "./store.js";
+import React from "react";
+import { useEffect, useState } from "react";
 
-function App() {
-  let state = useSelector((state) => state);
-  let dispatch = useDispatch();
-  let page = state.page;
+const App = React.memo(() => {
+  let [page, setPage] = useState(0);
+  const containers = document.getElementsByClassName("view");
+  const lastPage = containers.length - 1;
 
-  useEffect(() => {
-    const containers = document.getElementsByClassName("view");
-    const lastPage = containers.length - 1;
-    dispatch(setPages(containers.length));
+  console.log(page);
 
-    // 새로고침시 스크롤 초기화
-    window.onbeforeunload = function pushRefresh() {
-      window.scrollTo(0, 0);
-    };
+  // 새로고침 시 스크롤 초기화
+  window.onbeforeunload = function pushRefresh() {
+    window.scrollTo(0, 0);
+  };
 
-    // 윈도우 창 크기 변했을 때 페이지 화면에 맞추기
-    window.addEventListener("resize", () => {
-      doScrollMove(false);
-    });
-
-    // 방향키 눌러서 페이지 이동
-    window.addEventListener("keyup", (e) => {
-      if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-        doPageCal(e, lastPage);
-      }
-    });
-
-    // 마우스 휠 굴려서 페이지 이동
-    window.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault();
-        doPageCal(e, lastPage);
-      },
-      { passive: false }
-    );
+  // 윈도우 창 크기 변했을 때 페이지 화면에 맞추기
+  window.addEventListener("resize", () => {
+    doScrollMove(false);
   });
 
+  // 방향키 눌러서 페이지 이동
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+      doPageCal(e, lastPage);
+    }
+  });
+
+  // 마우스 휠 굴려서 페이지 이동
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      e.preventDefault();
+      doPageCal(e, lastPage);
+    },
+    { passive: false }
+  );
+
+  // page 값 변화시 스크롤 이동
   useEffect(() => {
-    page = state.page;
+    if (page < 0) {
+      setPage(0);
+    } else if (page > lastPage) {
+      setPage(lastPage);
+    }
     doScrollMove(true);
-  }, [state.page]);
+  }, [page]);
 
   /**
    * 이동할 다음 페이지 계산
@@ -63,26 +62,19 @@ function App() {
     switch (e.type) {
       case "wheel":
         if (e.deltaY > 0) {
-          page++;
+          setPage(page + 1);
         } else if (e.deltaY < 0) {
-          page--;
+          setPage(page - 1);
         }
         break;
       case "keyup":
         if (e.key === "ArrowUp") {
-          page--;
+          setPage(page - 1);
         } else if (e.key === "ArrowDown") {
-          page++;
+          setPage(page + 1);
         }
         break;
     }
-
-    if (page < 0) {
-      page = 0;
-    } else if (page > lastPage) {
-      page = lastPage;
-    }
-    dispatch(setPage(page));
   }
 
   /**
@@ -91,7 +83,7 @@ function App() {
    */
   function doScrollMove(isSmooth) {
     window.scrollTo({
-      top: `${state.page * window.innerHeight}`,
+      top: `${page * window.innerHeight}`,
       left: 0,
       behavior: `${isSmooth ? "smooth" : "auto"}`,
     });
@@ -99,7 +91,7 @@ function App() {
 
   return (
     <div className="App">
-      <Progress />
+      <Progress page={page} pages={lastPage + 1} setPage={setPage} />
       <MainView />
       <InfoView />
       <ProjectsView />
@@ -107,6 +99,6 @@ function App() {
       <ContactView />
     </div>
   );
-}
+});
 
 export default App;

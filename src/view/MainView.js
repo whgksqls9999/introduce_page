@@ -1,4 +1,7 @@
-function MainView() {
+import React from "react";
+
+const MainView = React.memo(() => {
+  console.log("main");
   return (
     <div className="view">
       <div className="border">
@@ -11,6 +14,6 @@ function MainView() {
       </div>
     </div>
   );
-}
+});
 
 export default MainView;
