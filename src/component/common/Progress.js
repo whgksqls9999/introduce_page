@@ -2,24 +2,23 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setPage } from "../../store.js";
-
-function Progress() {
-  let state = useSelector((state) => state);
-  const pages = Array(state.pages).fill(0);
+import React from "react";
+const Progress = React.memo((props) => {
+  const pages = Array(props.pages).fill(0);
   const pageList = ["Main", "Info", "Projects", "Interests", "Contact"];
 
-  let dispatch = useDispatch();
+  let [page, setPage] = [props.page, props.setPage];
 
   return (
     <div className="progress-box">
       {pages.map((val, idx) => (
         <button
           className={`${idx} progress-box-button${
-            state.page === idx ? " active" : ""
+            page === idx ? " active" : ""
           }`}
           key={idx}
           onClick={() => {
-            dispatch(setPage(idx));
+            setPage(idx);
           }}
         >
           <div className="progress-box-title">{pageList[idx]}</div>
@@ -27,6 +26,6 @@ function Progress() {
       ))}
     </div>
   );
-}
+});
 
 export default Progress;
