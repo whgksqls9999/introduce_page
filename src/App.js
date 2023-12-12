@@ -6,15 +6,17 @@ import InterestsView from "./view/InterestsView.js";
 import ContactView from "./view/ContactView.js";
 import Progress from "./component/common/Progress.js";
 
+import React from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { setPage } from "./store.js";
 import { setPages } from "./store.js";
+import store from "./store.js";
 
-function App() {
-  let state = useSelector((state) => state);
+const App = React.memo(() => {
+  let page = useSelector((state) => state.page);
   let dispatch = useDispatch();
-  let page = state.page;
+  console.log("app");
 
   useEffect(() => {
     const containers = document.getElementsByClassName("view");
@@ -50,9 +52,8 @@ function App() {
   });
 
   useEffect(() => {
-    page = state.page;
     doScrollMove(true);
-  }, [state.page]);
+  }, [page]);
 
   /**
    * 이동할 다음 페이지 계산
@@ -63,26 +64,25 @@ function App() {
     switch (e.type) {
       case "wheel":
         if (e.deltaY > 0) {
-          page++;
+          dispatch(setPage(page + 1));
         } else if (e.deltaY < 0) {
-          page--;
+          dispatch(setPage(page - 1));
         }
         break;
       case "keyup":
         if (e.key === "ArrowUp") {
-          page--;
+          dispatch(setPage(page - 1));
         } else if (e.key === "ArrowDown") {
-          page++;
+          dispatch(setPage(page + 1));
         }
         break;
     }
 
     if (page < 0) {
-      page = 0;
+      dispatch(setPage(0));
     } else if (page > lastPage) {
-      page = lastPage;
+      dispatch(setPage(lastPage));
     }
-    dispatch(setPage(page));
   }
 
   /**
@@ -91,7 +91,7 @@ function App() {
    */
   function doScrollMove(isSmooth) {
     window.scrollTo({
-      top: `${state.page * window.innerHeight}`,
+      top: `${page * window.innerHeight}`,
       left: 0,
       behavior: `${isSmooth ? "smooth" : "auto"}`,
     });
@@ -107,6 +107,6 @@ function App() {
       <ContactView />
     </div>
   );
-}
+});
 
 export default App;

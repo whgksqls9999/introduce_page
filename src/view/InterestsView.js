@@ -1,4 +1,7 @@
-function InterestsView() {
+import React from "react";
+
+const InterestsView = React.memo(() => {
+  console.log("interests");
   return (
     <div className="view">
       <div className="border">
@@ -6,6 +9,6 @@ function InterestsView() {
       </div>
     </div>
   );
-}
+});
 
 export default InterestsView;
