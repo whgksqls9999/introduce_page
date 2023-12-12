@@ -14,7 +14,7 @@ import { setPages } from "./store.js";
 function App() {
   let state = useSelector((state) => state);
   let dispatch = useDispatch();
-  let page = 0;
+  let page = state.page;
 
   useEffect(() => {
     const containers = document.getElementsByClassName("view");

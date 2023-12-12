@@ -39,8 +39,8 @@ let isProjectOpen = createSlice({
   name: "isProjectOpen",
   initialState: false,
   reducers: {
-    toggleIsProjectOpen(state) {
-      return !state;
+    toggleIsProjectOpen(state, action) {
+      return action.payload;
     },
   },
 });
