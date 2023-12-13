@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { toggleIsProjectOpen } from "../../store";
 import projects from "../../data/ProjectsData";
-import ProjectHabing from "./include/ProjectHabing";
+import ProjectDetailWindow from "./include/ProjectDetailWindow";
 
 export default function ProjectsDetail() {
   let openedProject = useSelector((state) => state.openedProject);
@@ -38,7 +38,7 @@ export default function ProjectsDetail() {
     <div className="projects-detail">
       <div className="projects-detail-window">
         <button className="projects-detail-window-close-btn">닫기</button>
-        <ProjectHabing />
+        <ProjectDetailWindow />
       </div>
     </div>
   );
