@@ -95,7 +95,7 @@ const App = React.memo(() => {
       <MainView />
       <InfoView />
       <ProjectsView />
-      <InterestsView />
+      {/* <InterestsView /> */}
       <ContactView />
     </div>
   );
