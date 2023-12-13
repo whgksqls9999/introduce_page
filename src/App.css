@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -7,8 +7,7 @@
   color: white;
 }
 
-
-.App{
+.App {
   background-color: black;
   height: 500vh;
   width: 100vw;
@@ -16,7 +15,7 @@
   position: relative;
 }
 
-.view{
+.view {
   width: 1200px;
   height: 100vh;
   padding: 3rem;
@@ -24,7 +23,7 @@
   margin-right: auto;
 }
 
-.border{
+.border {
   border: 1px solid white;
   width: 100%;
   height: 100%;
@@ -32,15 +31,14 @@
   flex-direction: column;
 }
 
-
-.progress-box{
+.progress-box {
   width: 400px;
   height: 50px;
   position: fixed;
   left: 0;
   right: 0;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: space-evenly;
   align-items: start;
@@ -50,7 +48,7 @@
   z-index: 1;
 }
 
-.progress-box-button{
+.progress-box-button {
   border: none;
   width: 15px;
   height: 15px;
@@ -61,24 +59,24 @@
   overflow: unset;
 }
 
-.progress-box-button:hover{
+.progress-box-button:hover {
   background-color: orange;
 }
 
-.progress-box-button:active{
+.progress-box-button:active {
   background-color: rgb(255, 255, 255);
 }
 
-.progress-box-button:hover > .progress-box-title{
+.progress-box-button:hover > .progress-box-title {
   opacity: 1;
 }
 
-.active{
+.active {
   background-color: orange;
   transition: all 0.3s;
 }
 
-.progress-box-title{
+.progress-box-title {
   position: absolute;
   top: 20px;
   left: -30%;
@@ -89,63 +87,63 @@
   font-size: 1rem;
 }
 
-.mainview-content{
+.mainview-content {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.mainview-title{
+.mainview-title {
   margin-left: auto;
   margin-right: auto;
   font-size: 7rem;
 }
 
-.mainview-title div{
+.mainview-title div {
   font-family: omyu_pretty;
 }
 
-.title{
+.title {
   font-size: 3rem;
   margin: 1rem;
   border-bottom: 1px solid white;
   padding: 0.3rem;
 }
 
-.info-profile{
+.info-profile {
   display: flex;
   border-bottom: 1px solid white;
   margin: 0 1rem;
   padding: 0 1rem 1rem 1rem;
 }
 
-.profile-img{
+.profile-img {
   background-color: #cccccc;
   width: 160px;
   height: 202px;
   border-radius: 10px;
 }
 
-.profile-info{
+.profile-info {
   margin-left: 13px;
 }
 
-.profile-name{
+.profile-name {
   font-size: 3rem;
   letter-spacing: 10px;
   height: 50px;
 }
 
-.profile-name-eng{
+.profile-name-eng {
   font-size: 1.9rem;
 }
 
-.profile-birthday{
+.profile-birthday {
   font-size: 1.9rem;
 }
 
-.info-detail-tab{
+.info-detail-tab {
   display: flex;
   align-items: end;
   margin: 12px 16px;
@@ -153,39 +151,39 @@
   height: 35px;
 }
 
-.info-detail-tab-button{
+.info-detail-tab-button {
   transition: font-size 0.3s ease;
   cursor: pointer;
 }
 
-.info-detail-tab-button:hover{
+.info-detail-tab-button:hover {
   font-weight: bold;
 }
 
-.selected-tab{
+.selected-tab {
   font-weight: bold;
   font-size: 1.7rem;
 }
 
-.info-detail-content{
+.info-detail-content {
   /* height: 100%; */
 }
 
-.projects-list{
+.projects-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
 }
 
-.projects-list-content{
+.projects-list-content {
   height: 85%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.projects-list-pages{
+.projects-list-pages {
   height: 30px;
   width: 100%;
   /* border: 3px dotted white; */
@@ -194,7 +192,7 @@
   gap: 20px;
 }
 
-.projects-list-pages button{
+.projects-list-pages button {
   background-color: transparent;
   border: 1px solid white;
   width: 20px;
@@ -213,7 +211,7 @@
   /* font-weight: bold; */
 }
 
-.projects-list-item{
+.projects-list-item {
   height: 200px;
   /* border: 2px white dotted; */
   margin: 1rem;
@@ -223,97 +221,104 @@
   border-radius: 20px;
   display: flex;
   padding: 1rem;
-  animation: fadein 1s ease; 
+  animation: fadein 1s ease;
 }
 
 @keyframes fadein {
   from {
     opacity: 0;
-  } to {
+  }
+  to {
     opacity: 1;
   }
 }
 
-.projects-list-item-hover{
+.projects-list-item-hover {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(20deg, rgb(255,255,255,0.2), rgb(255,255,255,0));
+  background: linear-gradient(
+    20deg,
+    rgb(255, 255, 255, 0.2),
+    rgb(255, 255, 255, 0)
+  );
   opacity: 0;
   transition: all 0.3s;
 }
 
-.projects-list-item-thumbnail{
+.projects-list-item-thumbnail {
   /* background-color: orange; */
   width: 35%;
   padding: 0.4rem;
   display: flex;
 }
 
-.projects-list-item-thumbnail img{
+.projects-list-item-thumbnail img {
   margin-left: auto;
   margin-right: auto;
 }
 
-.projects-list-item-content{
+.projects-list-item-content {
   /* background-color: violet; */
   width: 65%;
   padding: 0.4rem;
 }
 
-.projects-list-item-content-title{
+.projects-list-item-content-title {
   height: 60px;
   line-height: 1;
 }
 
-.projects-list-item:hover > .projects-list-item-hover{
+.projects-list-item:hover > .projects-list-item-hover {
   opacity: 1;
 }
 
-.projects-list-item-content-title{
+.projects-list-item-content-title {
   font-size: 3rem;
 }
 
-.projects-detail{
+.projects-detail {
   position: fixed;
   display: flex;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgb(0,0,0,0.8);
+  background-color: rgb(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 2;
 }
 
-.projects-detail-window{
+.projects-detail-window {
   width: 700px;
   border: 1px solid white;
   height: 550px;
-  background-color: rgb(255,255,255,0.9);
-  animation: doOpenWindow 1s ;
+  background-color: rgb(255, 255, 255, 0.9);
+  animation: doOpenWindow 1s;
 }
 
 @keyframes doOpenWindow {
-  from{
+  from {
     width: 0;
-  }to {
+  }
+  to {
     width: 700px;
   }
 }
 
-.contact-list{
+.contact-list {
   display: flex;
   flex-wrap: wrap;
   width: 800px;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.contact-list a{
+.contact-list a {
   text-decoration: none;
   text-align: center;
   display: flex;
@@ -321,7 +326,7 @@
   align-items: center;
 }
 
-.contact-list-item{
+.contact-list-item {
   margin-top: 40px;
   width: 50%;
   height: 200px;
@@ -331,7 +336,7 @@
   align-items: center;
 }
 
-.contact-list-item-img{
+.contact-list-item-img {
   background-color: white;
   border-radius: 50%;
   width: 150px;
@@ -339,16 +344,59 @@
   margin-bottom: 20px;
 }
 
+.projects-detail-window {
+  position: relative;
+  padding: 1rem;
+}
+
+.projects-detail-window-close-btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  background-color: transparent;
+  color: black;
+}
+
+.projects-detail-window div{
+  color: black;
+}
+
+.project-habing{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-habing-title{
+  border-bottom: 3px solid black;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.project-habing-content{
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.project-habing-content-info-1{
+  font-size: 100px;
+  background-color: orange;
+  height: 1000px;
+}
+
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'omyu_pretty';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-family: "omyu_pretty";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
