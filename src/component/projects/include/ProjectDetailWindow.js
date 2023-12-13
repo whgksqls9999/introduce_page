@@ -5,8 +5,10 @@ import projects from "../../../data/ProjectsData";
 export default function ProjectDetailWindow() {
   let [page, setPage] = useState(0);
   let openedProject = useSelector((state) => state.openedProject);
-  let pages = projects[openedProject].content;
-  const lastPage = useRef();
+  const project = projects[openedProject];
+  const pages = project.content;
+
+  const lastPage = pages.length - 1;
   const info = useRef();
   const content = useRef();
 
@@ -37,18 +39,15 @@ export default function ProjectDetailWindow() {
           );
         })}
       </div>
-      <div className="project-detail-window-title">HABING</div>
+      <div className="project-detail-window-title">{project.title}</div>
       <div className="project-detail-window-content">
-        {projects[0].content.map((element) => {
+        {project.content.map((element) => {
           return (
             <div className="project-detail-window-content-info" key={element}>
               {element}
             </div>
           );
         })}
-        {/* <div className="project-detail-window-content-info">1</div>
-        <div className="project-detail-window-content-info">2</div>
-        <div className="project-detail-window-content-info">3</div> */}
       </div>
     </div>
   );
