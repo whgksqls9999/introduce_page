@@ -14,8 +14,6 @@ const App = React.memo(() => {
   const containers = document.getElementsByClassName("view");
   const lastPage = containers.length - 1;
 
-  console.log(page);
-
   // 새로고침 시 스크롤 초기화
   window.onbeforeunload = function pushRefresh() {
     window.scrollTo(0, 0);
