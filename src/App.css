@@ -18,15 +18,17 @@
 .view {
   width: 1200px;
   height: 100vh;
-  padding: 3rem;
+  padding:3rem;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  align-items: center;
 }
 
 .border {
   border: 1px solid white;
   width: 100%;
-  height: 100%;
+  height: 650px;
   display: flex;
   flex-direction: column;
 }
@@ -113,9 +115,11 @@
 
 .info-profile {
   display: flex;
+  align-items: center;
   border-bottom: 1px solid white;
   margin: 0 1rem;
   padding: 0 1rem 1rem 1rem;
+  height: 35%;
 }
 
 .profile-img {
@@ -127,6 +131,7 @@
 
 .profile-info {
   margin-left: 13px;
+  height: 100%;
 }
 
 .profile-name {
@@ -167,6 +172,7 @@
 
 .info-detail-content {
   /* height: 100%; */
+  margin: 0 16px;
 }
 
 .projects-list {
@@ -313,11 +319,12 @@
 
 .contact-list {
   display: flex;
-  flex-wrap: wrap;
   width: 800px;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  align-items: center;
+  padding-bottom: 100px;
 }
 
 .contact-list a {
@@ -372,18 +379,35 @@
   font-size: 3rem;
   font-weight: bold;
   line-height: 1.5;
-  width: 100%;
+  width: calc(100% - 40px);
   height: 80px;
   overflow: hidden;
 }
 
 .project-detail-window-content{
   height: 100%;
+  width: calc(100% - 40px);
 }
 
-.project-detail-window-content-info{
-  font-size: 100px;
-  height: 100%;
+.project-detail-window-habing{
+  height: 500%;
+}
+
+.project-detail-window-habing-page{
+  height: 20%;
+  border-bottom: 2px solid black;
+}
+
+.project-detail-window-habing-outline{
+  border-bottom: 2px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.project-detail-window-habing-outline div{
+  height: 30px;
+  overflow: hidden;
 }
 
 .project-detail-window-progress{
@@ -394,13 +418,37 @@
   height: 447.24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: end;
+  gap: 20px;
 }
 
+
 .project-detail-window-progress-btn{
-  height: 30px;
-  border-radius: 50%;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 2;
+  cursor: pointer;
 }
+
+.project-detail-window-progress-btn-active{
+  font-weight: bold;
+  background-color: #cccccc;
+}
+.info-detail-content-select{
+  height: 100%;
+}
+
+.info-detail-content-select li div:nth-child(1){
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.info-detail-content-select li div:nth-child(2){
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
 @font-face {
   font-family: "GmarketSansMedium";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")

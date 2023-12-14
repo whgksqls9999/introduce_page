@@ -5,10 +5,6 @@ const ContactList = React.memo(() => {
     <div className="contact-list">
       <div className="contact-list-item">
         <div className="contact-list-item-img"></div>
-        <div>010-7530-5755</div>
-      </div>
-      <div className="contact-list-item">
-        <div className="contact-list-item-img"></div>
         <div>whgksqls9999@naver.com</div>
       </div>
       <div className="contact-list-item">

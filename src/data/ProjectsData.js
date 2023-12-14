@@ -25,14 +25,6 @@ let projects = [
     period: "23.11.27 ~ ",
     headCount: "1인",
   },
-  {
-    id: 3,
-    img: "img/introduce.jpg",
-    title: "테스트4",
-    outline: "테스트",
-    period: "23.11.27 ~ ",
-    headCount: "1인",
-  },
 ];
 
 export default projects;
