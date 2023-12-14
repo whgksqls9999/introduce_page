@@ -346,11 +346,15 @@
 }
 
 .contact-list-item-img {
+  transform: trans;
   background-color: white;
   border-radius: 50%;
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -387,6 +391,7 @@
 .project-detail-window-content{
   height: 100%;
   width: calc(100% - 40px);
+  border-bottom: 3px solid black;
 }
 
 .project-detail-window-habing{
@@ -395,7 +400,7 @@
 
 .project-detail-window-habing-page{
   height: 20%;
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
 }
 
 .project-detail-window-habing-outline{
