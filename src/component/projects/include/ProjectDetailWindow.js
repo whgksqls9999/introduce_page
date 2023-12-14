@@ -6,12 +6,11 @@ import ProjectDetailWindowHabing from "./ProjectDetailWindowHabing";
 export default function ProjectDetailWindow() {
   let [page, setPage] = useState(0);
   let openedProject = useSelector((state) => state.openedProject);
+  console.log(openedProject);
 
   const project = projects[openedProject];
   const pages = project.content;
-
   const lastPage = pages.length - 1;
-
   const progressBtn = useRef([]);
 
   return (
@@ -24,7 +23,7 @@ export default function ProjectDetailWindow() {
               key={idx}
               ref={(element) => (progressBtn.current[idx] = element)}
               onMouseUp={() => {
-                setPage(idx + 1);
+                setPage(idx);
               }}
             >
               {idx + 1}
@@ -34,7 +33,7 @@ export default function ProjectDetailWindow() {
       </div>
       <div className="project-detail-window-title">{project.title}</div>
       <div className="project-detail-window-content">
-        <ProjectDetailWindowHabing page={page} />
+        {openedProject == 0 ? <ProjectDetailWindowHabing page={page} /> : null}
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ function ProjectDetailWindowHabing(props) {
   useEffect(() => {
     console.log(
       (content.current.style.marginTop = `${
-        -(curPage - 1) * page.current.offsetHeight
+        -curPage * page.current.offsetHeight
       }px`)
     );
   }, [curPage]);
@@ -30,8 +30,6 @@ function ProjectDetailWindowHabing(props) {
       <div className="project-detail-window-habing-page" ref={page}>
         <div className="project-detail-window-habing-outline">
           <div>두번째 페이지</div>
-          <div>개발 asd : {project.period}</div>
-          <div>개발 asd : {project.headCount}</div>
         </div>
       </div>
     </div>
