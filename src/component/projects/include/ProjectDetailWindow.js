@@ -11,9 +11,8 @@ export default function ProjectDetailWindow() {
   const pages = project.content;
 
   const lastPage = pages.length - 1;
-  const info = useRef();
-  const content = useRef();
-  const progressBtn = useRef();
+
+  const progressBtn = useRef([]);
 
   return (
     <div className="project-detail-window">
@@ -23,7 +22,10 @@ export default function ProjectDetailWindow() {
             <div
               className="project-detail-window-progress-btn"
               key={idx}
-              onClick={() => {}}
+              ref={(element) => (progressBtn.current[idx] = element)}
+              onMouseUp={() => {
+                setPage(idx + 1);
+              }}
             >
               {idx + 1}
             </div>
@@ -31,8 +33,8 @@ export default function ProjectDetailWindow() {
         })}
       </div>
       <div className="project-detail-window-title">{project.title}</div>
-      <div className="project-detail-window-content" ref={content}>
-        <ProjectDetailWindowHabing />
+      <div className="project-detail-window-content">
+        <ProjectDetailWindowHabing page={page} />
       </div>
     </div>
   );
