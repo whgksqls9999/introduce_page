@@ -1,11 +1,14 @@
 import infoData from "../../data/InfoData";
+import InfoDetailContentSelect from "./include/InfoDetailContentSelect";
 
 export default function InfoDetailContent(props) {
   let info = infoData[props.selectedTab];
 
   return (
     <div className="info-detail-content">
-      <div>{info.id}</div>
+      <div>
+        <InfoDetailContentSelect info={props.selectedTab} />
+      </div>
     </div>
   );
 }
