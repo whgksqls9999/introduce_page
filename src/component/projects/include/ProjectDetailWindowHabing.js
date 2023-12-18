@@ -25,7 +25,30 @@ function ProjectDetailWindowHabing(props) {
           <div>개요 : {project.outline}</div>
           <div>개발 기간 : {project.period}</div>
           <div>개발 인원 : {project.headCount}</div>
+          <div className="project-detail-window-habing-outline-role">
+            <div>담당 역할 : </div>
+            <div className="project-detail-window-habing-outline-role-content">
+              {project.role.map((element, idx) => {
+                return (
+                  <div>
+                    &nbsp;{idx + 1}. {element}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div>
+            깃허브 :
+            <a
+              href="https://github.com/whgksqls9999/BINGPROJECT"
+              target="_blank"
+              className="project-link"
+            >
+              https://github.com/whgksqls9999/BINGPROJECT
+            </a>
+          </div>
         </div>
+        <div className="project-detail-window-habing-content"></div>
       </div>
       <div className="project-detail-window-habing-page" ref={page}>
         <div className="project-detail-window-habing-outline">

@@ -299,7 +299,7 @@
 }
 
 .projects-detail-window {
-  width: 700px;
+  width: 900px;
   border: 1px solid white;
   height: 550px;
   background-color: rgb(220, 220, 220);
@@ -313,7 +313,7 @@
     width: 0;
   }
   to {
-    width: 700px;
+    width: 900px;
   }
 }
 
@@ -400,7 +400,6 @@
 
 .project-detail-window-habing-page{
   height: 20%;
-  /* border-bottom: 2px solid black; */
 }
 
 .project-detail-window-habing-outline{
@@ -413,6 +412,19 @@
 .project-detail-window-habing-outline div{
   height: 30px;
   overflow: hidden;
+}
+
+.project-detail-window-habing-outline-role{
+  height: 90px !important;
+  display: flex;
+}
+
+.project-detail-window-habing-outline-role-content{
+  height: 100% !important;
+}
+
+.project-detail-window-habing-content{
+  padding: 1rem;
 }
 
 .project-detail-window-progress{
@@ -452,6 +464,11 @@
 .info-detail-content-select li div:nth-child(2){
   margin-bottom: 20px;
   margin-left: 10px;
+}
+
+.project-link{
+  text-decoration: none;
+  color: black;
 }
 
 @font-face {

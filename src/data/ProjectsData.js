@@ -4,8 +4,13 @@ let projects = [
     img: "img/habing.jpg",
     title: "HABING",
     outline: "Spring boot, Vue.js를 활용한 커뮤니티 사이트 구축",
-    period: "23.11.13 ~ 23.11.24",
+    period: "23.11.13 ~ 23.11.24 (2주)",
     headCount: "2인",
+    role: [
+      "CSS 레이아웃 디자인 및 애니메이션 구현",
+      "백엔드 Rest API 구현 및 DB 테이블 설계",
+      "카카오맵 API 활용 장소 정보 관리",
+    ],
     content: [1, 2, 3],
   },
   {
@@ -13,7 +18,7 @@ let projects = [
     img: "img/introduce.jpg",
     title: "Introduce page",
     outline: "React를 활용한 개인 포트폴리오 사이트 구축",
-    period: "23.11.27 ~ ",
+    period: "23.11.27 ~ (진행중)",
     headCount: "1인",
     content: [1, 2, 3, 4],
   },
