@@ -37,16 +37,6 @@ function ProjectDetailWindowHabing(props) {
               })}
             </div>
           </div>
-          <div>
-            깃허브 :
-            <a
-              href="https://github.com/whgksqls9999/BINGPROJECT"
-              target="_blank"
-              className="project-link"
-            >
-              https://github.com/whgksqls9999/BINGPROJECT
-            </a>
-          </div>
         </div>
         <div className="project-detail-window-habing-content"></div>
       </div>

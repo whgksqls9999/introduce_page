@@ -10,8 +10,10 @@ let projects = [
       "CSS 레이아웃 디자인 및 애니메이션 구현",
       "백엔드 Rest API 구현 및 DB 테이블 설계",
       "카카오맵 API 활용 장소 정보 관리",
+      "로그인 상태 세션 관리",
     ],
     content: [1, 2, 3],
+    github: "https://github.com/whgksqls9999/BINGPROJECT",
   },
   {
     id: 1,
@@ -21,6 +23,7 @@ let projects = [
     period: "23.11.27 ~ (진행중)",
     headCount: "1인",
     content: [1, 2, 3, 4],
+    github: "https://github.com/whgksqls9999/introduce_page",
   },
   {
     id: 2,

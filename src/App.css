@@ -415,8 +415,9 @@
 }
 
 .project-detail-window-habing-outline-role{
-  height: 90px !important;
+  height: 120px !important;
   display: flex;
+  width: 794.81px;
 }
 
 .project-detail-window-habing-outline-role-content{
@@ -463,13 +464,19 @@
 
 .info-detail-content-select li div:nth-child(2){
   margin-bottom: 20px;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .project-link{
-  text-decoration: none;
-  color: black;
+  height: 23px;
+  overflow: hidden;
+  text-decoration:none;
+  color: #555555;
+  font-size: 20px;
+
 }
+
+
 
 @font-face {
   font-family: "GmarketSansMedium";
