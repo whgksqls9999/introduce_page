@@ -31,7 +31,12 @@ export default function ProjectDetailWindow() {
           );
         })}
       </div>
-      <div className="project-detail-window-title">{project.title}</div>
+      <div className="project-detail-window-title">
+        {project.title}{" "}
+        <a href={project.github} target="_blank" className="project-link">
+          깃허브
+        </a>
+      </div>
       <div className="project-detail-window-content">
         {openedProject == 0 ? <ProjectDetailWindowHabing page={page} /> : null}
       </div>

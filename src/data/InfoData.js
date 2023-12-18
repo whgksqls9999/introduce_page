@@ -3,7 +3,7 @@ let infos = [
     id: 0,
     lang: ["javascript", "Java"],
     framwork: ["Vue.js", "React", "Spring", "gsap", "fontawesome"],
-    tool: ["notion", "figma", "unity", "blender"],
+    tool: ["notion", "figma"],
   },
   {
     id: 1,
