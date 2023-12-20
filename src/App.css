@@ -420,6 +420,7 @@
   /* overflow: hidden; */
 }
 
+
 .project-detail-window-habing-outline-role{
   height: 150px !important;
   display: flex;
@@ -482,7 +483,9 @@
 
 }
 
-
+.div30{
+  height: 30px;
+}
 
 @font-face {
   font-family: "GmarketSansMedium";

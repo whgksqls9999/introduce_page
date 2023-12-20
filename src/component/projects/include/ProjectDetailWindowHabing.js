@@ -52,16 +52,20 @@ function ProjectDetailWindowHabingPage1(props) {
       <div className="project-detail-window-habing-content">
         <ul>
           <li>
-            <div>■ 개발 환경</div>
-            <div>Visual Studio Code | Spring | GIT | GITHUB</div>
+            <div className="div30">■ 개발 환경</div>
+            <div className="div30">
+              Visual Studio Code | Spring | GIT | GITHUB
+            </div>
           </li>
           <li>
-            <div>■ 개발</div>
-            <div>HTML5 | CSS3 | javascript | Vue.js | MySQL</div>
+            <div className="div30">■ 개발</div>
+            <div className="div30">
+              HTML5 | CSS3 | javascript | Vue.js | MySQL
+            </div>
           </li>
           <li>
-            <div>■ 커뮤니케이션</div>
-            <div>MATTERMOST | NOTION | FIGMA</div>
+            <div className="div30">■ 커뮤니케이션</div>
+            <div className="div30">MATTERMOST | NOTION | FIGMA</div>
           </li>
         </ul>
       </div>
