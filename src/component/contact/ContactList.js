@@ -4,8 +4,10 @@ const ContactList = React.memo(() => {
   return (
     <div className="contact-list">
       <div className="contact-list-item">
+        {/* <a href="mailto:whgksqls9999@naver.com" target="_blank"> */}
         <div className="contact-list-item-img"></div>
         <div>whgksqls9999@naver.com</div>
+        {/* </a> */}
       </div>
       <div className="contact-list-item">
         <a href="https://jhb0412.tistory.com/" target="_blank">

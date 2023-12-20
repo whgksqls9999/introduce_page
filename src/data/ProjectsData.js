@@ -11,8 +11,9 @@ let projects = [
       "카카오맵 API 활용, 위치정보 검색, 저장, 조회 기능 구현",
       "세션 스토리지 활용, 로그인, 로그아웃 기능 구현",
       "게시글, 장소 좋아요 및 유저 간 팔로잉 기능 구현",
+      "CSS 레이아웃 디자인 및 구현",
     ],
-    content: [1, 2, 3],
+    content: [1, 2, 3, 4, 5, 6],
     github: "https://github.com/whgksqls9999/BINGPROJECT",
   },
   {

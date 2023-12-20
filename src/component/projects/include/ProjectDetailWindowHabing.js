@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-
 import projects from "../../../data/ProjectsData";
-import { connect } from "react-redux";
+import React from "react";
 
-function ProjectDetailWindowHabing(props) {
+const ProjectDetailWindowHabing = React.memo((props) => {
+  // function ProjectDetailWindowHabing(props) {
   let project = projects[0];
   let curPage = props.page;
 
@@ -11,11 +11,9 @@ function ProjectDetailWindowHabing(props) {
   const page = useRef(null);
 
   useEffect(() => {
-    console.log(
-      (content.current.style.marginTop = `${
-        -curPage * page.current.offsetHeight
-      }px`)
-    );
+    content.current.style.marginTop = `${
+      -curPage * page.current.offsetHeight
+    }px`;
   }, [curPage]);
 
   return (
@@ -30,7 +28,7 @@ function ProjectDetailWindowHabing(props) {
             <div className="project-detail-window-habing-outline-role-content">
               {project.role.map((element, idx) => {
                 return (
-                  <div>
+                  <div key={idx}>
                     &nbsp;{idx + 1}. {element}
                   </div>
                 );
@@ -38,15 +36,29 @@ function ProjectDetailWindowHabing(props) {
             </div>
           </div>
         </div>
-        <div className="project-detail-window-habing-content"></div>
+        <div className="project-detail-window-habing-content">
+          <ul>
+            <li>
+              <div>■ 개발 환경</div>
+              <div>Visual Studio Code | Spring | GIT | GITHUB</div>
+            </li>
+            <li>
+              <div>■ 개발</div>
+              <div>HTML5 | CSS3 | javascript | Vue.js | MySQL</div>
+            </li>
+            <li>
+              <div>■ 커뮤니케이션</div>
+              <div>MATTERMOST | NOTION | FIGMA</div>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="project-detail-window-habing-page" ref={page}>
-        <div className="project-detail-window-habing-outline">
-          <div>두번째 페이지</div>
-        </div>
+        <h2>스크롤 애니메이션</h2>
       </div>
     </div>
   );
-}
+});
+// });
 
 export default ProjectDetailWindowHabing;

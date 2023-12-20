@@ -6,6 +6,7 @@ import ProjectDetailWindow from "./include/ProjectDetailWindow";
 import React from "react";
 
 const ProjectsDetail = React.memo(() => {
+  // function ProjectsDetail() {
   let openedProject = useSelector((state) => state.openedProject);
   let dispatch = useDispatch();
   const outside = useRef();
@@ -45,5 +46,6 @@ const ProjectsDetail = React.memo(() => {
     </div>
   );
 });
+// );
 
 export default ProjectsDetail;
