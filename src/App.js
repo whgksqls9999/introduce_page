@@ -14,32 +14,34 @@ const App = React.memo(() => {
   const containers = document.getElementsByClassName("view");
   const lastPage = containers.length - 1;
 
-  // 새로고침 시 스크롤 초기화
-  window.onbeforeunload = function pushRefresh() {
-    window.scrollTo(0, 0);
-  };
+  useEffect(() => {
+    // 새로고침 시 스크롤 초기화
+    window.onbeforeunload = function pushRefresh() {
+      window.scrollTo(0, 0);
+    };
 
-  // 윈도우 창 크기 변했을 때 페이지 화면에 맞추기
-  window.addEventListener("resize", () => {
-    doScrollMove(false);
-  });
+    // 윈도우 창 크기 변했을 때 페이지 화면에 맞추기
+    window.addEventListener("resize", () => {
+      doScrollMove(false);
+    });
 
-  // 방향키 눌러서 페이지 이동
-  window.addEventListener("keyup", (e) => {
-    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-      doPageCal(e, lastPage);
-    }
-  });
+    // 방향키 눌러서 페이지 이동
+    window.addEventListener("keyup", (e) => {
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+        doPageCal(e, lastPage);
+      }
+    });
 
-  // 마우스 휠 굴려서 페이지 이동
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      e.preventDefault();
-      doPageCal(e, lastPage);
-    },
-    { passive: false }
-  );
+    // 마우스 휠 굴려서 페이지 이동
+    window.addEventListener(
+      "wheel",
+      function (e) {
+        e.preventDefault();
+        doPageCal(e, lastPage);
+      },
+      { passive: false }
+    );
+  }, []);
 
   // page 값 변화시 스크롤 이동
   useEffect(() => {
