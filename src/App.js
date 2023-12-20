@@ -7,12 +7,13 @@ import ContactView from "./view/ContactView.js";
 import Progress from "./component/common/Progress.js";
 
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const App = React.memo(() => {
   let [page, setPage] = useState(0);
   const containers = document.getElementsByClassName("view");
-  const lastPage = containers.length - 1;
+  let lastPage = containers.length - 1;
+  const main = useRef(null);
 
   useEffect(() => {
     // 새로고침 시 스크롤 초기화
@@ -28,16 +29,17 @@ const App = React.memo(() => {
     // 방향키 눌러서 페이지 이동
     window.addEventListener("keyup", (e) => {
       if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-        doPageCal(e, lastPage);
+        console.log(e);
+        doPageCal(e);
       }
     });
 
     // 마우스 휠 굴려서 페이지 이동
     window.addEventListener(
       "wheel",
-      function (e) {
+      (e) => {
         e.preventDefault();
-        doPageCal(e, lastPage);
+        doPageCal(e);
       },
       { passive: false }
     );
@@ -45,11 +47,14 @@ const App = React.memo(() => {
 
   // page 값 변화시 스크롤 이동
   useEffect(() => {
+    // console.log(page, lastPage);
+
     if (page < 0) {
       setPage(0);
     } else if (page > lastPage) {
       setPage(lastPage);
     }
+
     doScrollMove(true);
   }, [page]);
 
@@ -58,24 +63,6 @@ const App = React.memo(() => {
    * @param {Object} e
    * @param {Number} lastPage
    */
-  function doPageCal(e, lastPage) {
-    switch (e.type) {
-      case "wheel":
-        if (e.deltaY > 0) {
-          setPage(page + 1);
-        } else if (e.deltaY < 0) {
-          setPage(page - 1);
-        }
-        break;
-      case "keyup":
-        if (e.key === "ArrowUp") {
-          setPage(page - 1);
-        } else if (e.key === "ArrowDown") {
-          setPage(page + 1);
-        }
-        break;
-    }
-  }
 
   /**
    * 계산된 페이지로 스크롤 이동
@@ -89,8 +76,43 @@ const App = React.memo(() => {
     });
   }
 
+  function doPageCal(e) {
+    switch (e.type) {
+      case "wheel":
+        setPage((page) => {
+          if (e.deltaY > 0) {
+            return page + 1;
+          } else if (e.deltaY < 0) {
+            return page - 1;
+          }
+          return page;
+        });
+        // if (e.deltaY > 0) {
+        //   setPage(page + 1);
+        // } else if (e.deltaY < 0) {
+        //   setPage(page - 1);
+        // }
+        break;
+      case "keyup":
+        setPage((page) => {
+          if (e.key === "ArrowUp") {
+            return page - 1;
+          } else if (e.key === "ArrowDown") {
+            return page + 1;
+          }
+          return page;
+        });
+        // if (e.key === "ArrowUp") {
+        //   setPage(page - 1);
+        // } else if (e.key === "ArrowDown") {
+        //   setPage(page + 1);
+        // }
+        break;
+    }
+  }
+
   return (
-    <div className="App">
+    <div className="App" ref={main}>
       <Progress page={page} pages={lastPage + 1} setPage={setPage} />
       <MainView />
       <InfoView />
