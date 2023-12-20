@@ -8,6 +8,7 @@ import Progress from "./component/common/Progress.js";
 
 import React from "react";
 import { useEffect, useState, useRef } from "react";
+import { Routes, Route } from "react-router-dom";
 
 const App = React.memo(() => {
   let [page, setPage] = useState(0);
@@ -16,53 +17,92 @@ const App = React.memo(() => {
   const main = useRef(null);
 
   useEffect(() => {
+    // page 값 변화시 스크롤 이동
+    if (page < 0) {
+      setPage(0);
+    } else if (page > lastPage) {
+      setPage(lastPage);
+    }
+    doScrollMove(true);
+
+    // 이벤트 리스너 등록
+
     // 새로고침 시 스크롤 초기화
     window.onbeforeunload = function pushRefresh() {
       window.scrollTo(0, 0);
     };
 
     // 윈도우 창 크기 변했을 때 페이지 화면에 맞추기
-    window.addEventListener("resize", () => {
-      doScrollMove(false);
-    });
+    window.addEventListener("resize", resizeHandle);
 
     // 방향키 눌러서 페이지 이동
-    window.addEventListener("keyup", (e) => {
-      if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-        console.log(e);
-        doPageCal(e);
-      }
-    });
+    window.addEventListener("keyup", keyupHandle);
 
     // 마우스 휠 굴려서 페이지 이동
-    window.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault();
-        doPageCal(e);
-      },
-      { passive: false }
-    );
-  }, []);
+    window.addEventListener("wheel", wheelHandle, { passive: false });
 
-  // page 값 변화시 스크롤 이동
-  useEffect(() => {
-    // console.log(page, lastPage);
-
-    if (page < 0) {
-      setPage(0);
-    } else if (page > lastPage) {
-      setPage(lastPage);
-    }
-
-    doScrollMove(true);
+    return () => {
+      // 이벤트 리스너 제거
+      window.removeEventListener("resize", resizeHandle);
+      window.removeEventListener("wheel", wheelHandle);
+      window.removeEventListener("keyup", keyupHandle);
+    };
   }, [page]);
+
+  function resizeHandle() {
+    doScrollMove(false);
+  }
+
+  function keyupHandle(e) {
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+      doPageCal(e);
+    }
+  }
+
+  function wheelHandle(e) {
+    e.preventDefault();
+    doPageCal(e);
+  }
 
   /**
    * 이동할 다음 페이지 계산
    * @param {Object} e
    * @param {Number} lastPage
    */
+  function doPageCal(e) {
+    switch (e.type) {
+      case "wheel":
+        // setPage((page) => {
+        //   if (e.deltaY > 0) {
+        //     return page + 1;
+        //   } else if (e.deltaY < 0) {
+        //     return page - 1;
+        //   }
+        //   return page;
+        // });
+        if (e.deltaY > 0) {
+          setPage(page + 1);
+        } else if (e.deltaY < 0) {
+          setPage(page - 1);
+        }
+        break;
+      case "keyup":
+        // setPage((page) => {
+        //   if (e.key === "ArrowUp") {
+        //     return page - 1;
+        //   } else if (e.key === "ArrowDown") {
+        //     return page + 1;
+        //   }
+        //   return page;
+        // });
+        if (e.key === "ArrowUp") {
+          setPage(page - 1);
+        } else if (e.key === "ArrowDown") {
+          setPage(page + 1);
+        }
+        break;
+    }
+  }
 
   /**
    * 계산된 페이지로 스크롤 이동
@@ -74,41 +114,6 @@ const App = React.memo(() => {
       left: 0,
       behavior: `${isSmooth ? "smooth" : "auto"}`,
     });
-  }
-
-  function doPageCal(e) {
-    switch (e.type) {
-      case "wheel":
-        setPage((page) => {
-          if (e.deltaY > 0) {
-            return page + 1;
-          } else if (e.deltaY < 0) {
-            return page - 1;
-          }
-          return page;
-        });
-        // if (e.deltaY > 0) {
-        //   setPage(page + 1);
-        // } else if (e.deltaY < 0) {
-        //   setPage(page - 1);
-        // }
-        break;
-      case "keyup":
-        setPage((page) => {
-          if (e.key === "ArrowUp") {
-            return page - 1;
-          } else if (e.key === "ArrowDown") {
-            return page + 1;
-          }
-          return page;
-        });
-        // if (e.key === "ArrowUp") {
-        //   setPage(page - 1);
-        // } else if (e.key === "ArrowDown") {
-        //   setPage(page + 1);
-        // }
-        break;
-    }
   }
 
   return (
