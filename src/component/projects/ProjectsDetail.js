@@ -22,6 +22,13 @@ const ProjectsDetail = React.memo(() => {
       }
     });
 
+    // ESC키 클릭 시 닫기
+    window.addEventListener("keyup", (e) => {
+      if (e.key === "Escape") {
+        doCloseWindow();
+      }
+    });
+
     // 모달 창 닫기 버튼 클릭시 닫기
     closeBtn.current.addEventListener("click", () => {
       doCloseWindow();
