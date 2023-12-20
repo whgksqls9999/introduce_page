@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import projects from "../../../data/ProjectsData";
 import ProjectDetailWindowHabing from "./ProjectDetailWindowHabing";
+import React from "react";
 
-export default function ProjectDetailWindow() {
+const ProjectDetailWindow = React.memo(() => {
+  // function ProjectDetailWindow() {
   let [page, setPage] = useState(0);
   let openedProject = useSelector((state) => state.openedProject);
-  console.log(openedProject);
+  // console.log(openedProject);
 
   const project = projects[openedProject];
   const pages = project.content;
@@ -42,4 +44,7 @@ export default function ProjectDetailWindow() {
       </div>
     </div>
   );
-}
+});
+// });
+
+export default ProjectDetailWindow;

@@ -299,9 +299,9 @@
 }
 
 .projects-detail-window {
-  width: 900px;
+  width: 1000px;
   border: 1px solid white;
-  height: 550px;
+  height: 700px;
   background-color: rgb(220, 220, 220);
   animation: doOpenWindow 1s;
   position: relative;
@@ -313,7 +313,7 @@
     width: 0;
   }
   to {
-    width: 900px;
+    width: 1000px;
   }
 }
 
@@ -367,9 +367,15 @@
   color: black;
 }
 
-.projects-detail-window div{
+.projects-detail-window div, h2{
   color: black;
 }
+
+.projects-detail-window li{
+  color: black;
+  margin-bottom: 30px;
+}
+
 
 .project-detail-window{
   display: flex;
@@ -395,27 +401,28 @@
 }
 
 .project-detail-window-habing{
-  height: 500%;
+  height: 100%;
 }
 
 .project-detail-window-habing-page{
-  height: 20%;
-}
-
-.project-detail-window-habing-outline{
-  border-bottom: 2px solid black;
   font-size: 20px;
   font-weight: bold;
   padding: 1rem;
 }
 
-.project-detail-window-habing-outline div{
-  height: 30px;
-  overflow: hidden;
+.project-detail-window-habing-outline{
+  border-bottom: 2px solid black;
+  padding-bottom: 1rem;
 }
 
+.project-detail-window-habing-outline div{
+  height: 30px;
+  /* overflow: hidden; */
+}
+
+
 .project-detail-window-habing-outline-role{
-  height: 120px !important;
+  height: 150px !important;
   display: flex;
   width: 794.81px;
 }
@@ -425,12 +432,12 @@
 }
 
 .project-detail-window-habing-content{
-  padding: 1rem;
+  padding: 1rem 0 1rem 0;
 }
 
 .project-detail-window-progress{
   position: absolute;
-  top: 69.55px;
+  bottom: 0;
   right: 0;
   width: 30px;
   height: 447.24px;
@@ -476,7 +483,9 @@
 
 }
 
-
+.div30{
+  height: 30px;
+}
 
 @font-face {
   font-family: "GmarketSansMedium";
