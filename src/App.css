@@ -33,6 +33,17 @@
   flex-direction: column;
 }
 
+.scrollable {
+  overflow-y: scroll;
+}
+
+.emphasize{
+  background: linear-gradient(rgb(0,0,0,0),rgb(166, 255, 0,0.7));
+}
+
+.black{
+  color: black;
+}
 .progress-box {
   width: 400px;
   height: 50px;
@@ -299,7 +310,7 @@
 }
 
 .projects-detail-window {
-  width: 1000px;
+  width: 1100px;
   border: 1px solid white;
   height: 700px;
   background-color: rgb(220, 220, 220);
@@ -308,12 +319,27 @@
   padding: 1rem;
 }
 
+.project-detail-window-habing-page-scroll-1{
+  display: flex;
+}
+
+.project-detail-window-habing-page-scroll-1-content{
+  /* background-color: #555555; */
+  width: calc(978px - 400px);
+  padding: 1rem;
+}
+
+.project-detail-window-habing-page-scroll-1-content img{
+  margin: 0.4rem 0 0.4rem 1rem;
+}
+
+
 @keyframes doOpenWindow {
   from {
     width: 0;
   }
   to {
-    width: 1000px;
+    width: 1100px;
   }
 }
 
@@ -367,7 +393,7 @@
   color: black;
 }
 
-.projects-detail-window div, h2{
+.projects-detail-window div, h2, h3{
   color: black;
 }
 
@@ -400,9 +426,7 @@
   border-bottom: 3px solid black;
 }
 
-.scrollable {
-  overflow-y: scroll;
-}
+
 .project-detail-window-habing{
   height: 100%;
 }
@@ -411,7 +435,7 @@
   font-size: 20px;
   font-weight: bold;
   padding: 1rem;
-  height: 300%;
+  height: 400%;
 }
 
 .project-detail-window-habing-outline{
@@ -490,6 +514,10 @@
 
 .div30{
   height: 30px;
+}
+
+.project-detail-window-habing-page-scroll-1{
+  border: 3px solid #555555;
 }
 
 @font-face {
