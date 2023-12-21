@@ -128,9 +128,9 @@ function ProjectDetailWindowHabingPage2(props) {
   return (
     <div className="project-detail-window-habing-page" ref={page}>
       <h2>스크롤 애니메이션</h2>
-      <div className="project-detail-window-habing-page-scroll-1">
+      <div className="project-detail-window-habing-page-scroll block">
         <img src="img/scroll2.png" width={400} />
-        <div className="project-detail-window-habing-page-scroll-1-content">
+        <div className="project-detail-window-habing-page-scroll-content">
           <h3>■ 동작 화면</h3>
           <img src="img/" width={540} />
           <h3>■ 활용 기술 : gsap 라이브러리</h3>
@@ -155,7 +155,7 @@ function ProjectDetailWindowHabingPage2(props) {
           <div>&nbsp;3. gsap.to() 메서드를 사용해 최종 상태 지정</div>
           <img src="img/scroll6.png" width={400} />
           <h3>■ 고찰</h3>
-          <div></div>
+          <div>&nbsp;1. </div>
         </div>
       </div>
     </div>
@@ -174,6 +174,26 @@ function ProjectDetailWindowHabingPage3(props) {
   return (
     <div className="project-detail-window-habing-page" ref={page}>
       <h2>카카오맵 API 활용 위치정보 </h2>
+      <div className="project-detail-window-habing-page-map">
+        <div className="block">
+          <h3>1. 위치 정보 검색</h3>
+          <div className="project-detail-window-habing-page-map-content">
+            <img src="img/map1_1.png" width={700} />
+          </div>
+        </div>
+        <div className="block">
+          <h3>2. 위치 정보 저장</h3>
+          <div className="project-detail-window-habing-page-map-content">
+            <img src="img/map2_1.png" width={700} />
+          </div>
+        </div>
+        <div className="block">
+          <h3>3. 위치 정보 조회</h3>
+          <div className="project-detail-window-habing-page-map-content">
+            <img src="img/map3_1.png" width={700} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -40,6 +40,9 @@ const ProjectDetailWindow = React.memo(() => {
               }}
             >
               {idx + 1}
+              {/* <div className="project-detail-window-progress-btn-desc">
+                {element}
+              </div> */}
             </div>
           );
         })}

@@ -13,7 +13,14 @@ let projects = [
       "게시글, 장소 좋아요 및 유저 간 팔로잉 기능 구현",
       "CSS 레이아웃 디자인 및 구현",
     ],
-    content: [1, 2, 3, 4, 5, 6],
+    content: [
+      "개요",
+      "스크롤 애니메이션",
+      "위치",
+      "로그인",
+      "좋아요/팔로잉",
+      "마무리",
+    ],
     github: "https://github.com/whgksqls9999/BINGPROJECT",
   },
   {
