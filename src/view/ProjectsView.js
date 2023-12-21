@@ -3,7 +3,7 @@ import ProjectsDetail from "../component/projects/ProjectsDetail";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 
-const ProjectsView = React.memo(() => {
+const ProjectsView = React.memo((props) => {
   let isProjectOpen = useSelector((state) => state.isProjectOpen);
 
   console.log("projects");

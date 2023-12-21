@@ -11,6 +11,7 @@ const ProjectsDetail = React.memo(() => {
   let dispatch = useDispatch();
   const outside = useRef();
   const closeBtn = useRef();
+
   useEffect(() => {
     let project = projects[openedProject];
 
@@ -33,6 +34,8 @@ const ProjectsDetail = React.memo(() => {
     closeBtn.current.addEventListener("click", () => {
       doCloseWindow();
     });
+
+    return () => {};
   });
 
   /**
