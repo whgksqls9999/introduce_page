@@ -5,15 +5,22 @@ import ProjectDetailWindowHabing from "./ProjectDetailWindowHabing";
 import React from "react";
 
 const ProjectDetailWindow = React.memo(() => {
-  // function ProjectDetailWindow() {
   let [page, setPage] = useState(0);
   let openedProject = useSelector((state) => state.openedProject);
-  // console.log(openedProject);
 
   const project = projects[openedProject];
   const pages = project.content;
   const lastPage = pages.length - 1;
   const progressBtn = useRef([]);
+  const contentWindow = useRef(null);
+
+  function makeScrollable() {
+    contentWindow.current.classList.add("scrollable");
+  }
+
+  function makeNonScrollable() {
+    contentWindow.current.classList.remove("scrollable");
+  }
 
   return (
     <div className="project-detail-window">
@@ -39,8 +46,14 @@ const ProjectDetailWindow = React.memo(() => {
           깃허브
         </a>
       </div>
-      <div className="project-detail-window-content">
-        {openedProject == 0 ? <ProjectDetailWindowHabing page={page} /> : null}
+      <div className="project-detail-window-content" ref={contentWindow}>
+        {openedProject == 0 ? (
+          <ProjectDetailWindowHabing
+            page={page}
+            makeScrollable={makeScrollable}
+            makeNonScrollable={makeNonScrollable}
+          />
+        ) : null}
       </div>
     </div>
   );
