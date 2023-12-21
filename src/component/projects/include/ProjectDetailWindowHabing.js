@@ -20,6 +20,7 @@ const ProjectDetailWindowHabing = React.memo((props) => {
           page={page}
           project={project}
           makeNonScrollable={makeNonScrollable}
+          initScroll={initScroll}
         />
       ) : null}
       {curPage === 1 ? (
@@ -65,9 +66,11 @@ function ProjectDetailWindowHabingPage1(props) {
   let project = props.project;
 
   const makeNonScrollable = props.makeNonScrollable;
+  const initScroll = props.initScroll;
 
   useEffect(() => {
     makeNonScrollable();
+    initScroll();
   }, []);
 
   return (
@@ -125,6 +128,36 @@ function ProjectDetailWindowHabingPage2(props) {
   return (
     <div className="project-detail-window-habing-page" ref={page}>
       <h2>스크롤 애니메이션</h2>
+      <div className="project-detail-window-habing-page-scroll block">
+        <img src="img/scroll2.png" width={400} />
+        <div className="project-detail-window-habing-page-scroll-content">
+          <h3>■ 동작 화면</h3>
+          <img src="img/" width={540} />
+          <h3>■ 활용 기술 : gsap 라이브러리</h3>
+          <div>
+            - html요소에 적용된 클래스명을 토대로 초기, 최종 상태를 지정해주는
+            방식으로 애니메이션 적용
+          </div>
+          <div>
+            - 주어진 프로젝트 진행 시간을 고려했을 때, 보다{" "}
+            <span className="black emphasize">
+              손쉽게 애니메이션을 적용시킬 수 있는 점
+            </span>
+            이 이점으로 다가와 적용하기로 결정&nbsp;
+          </div>
+          <h3>■ 구현 내용</h3>
+          <div>
+            &nbsp;1. gsap 라이브러리 활용을 위해 html 요소에 클래스 지정
+          </div>
+          <img src="img/scroll4.png" width={400} />
+          <div>&nbsp;2. 각 요소들의 초기 상태를 CSS로 지정</div>
+          <img src="img/scroll5.png" width={400} />
+          <div>&nbsp;3. gsap.to() 메서드를 사용해 최종 상태 지정</div>
+          <img src="img/scroll6.png" width={400} />
+          <h3>■ 고찰</h3>
+          <div>&nbsp;1. </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -141,6 +174,26 @@ function ProjectDetailWindowHabingPage3(props) {
   return (
     <div className="project-detail-window-habing-page" ref={page}>
       <h2>카카오맵 API 활용 위치정보 </h2>
+      <div className="project-detail-window-habing-page-map">
+        <div className="block">
+          <h3>1. 위치 정보 검색</h3>
+          <div className="project-detail-window-habing-page-map-content">
+            <img src="img/map1_1.png" width={700} />
+          </div>
+        </div>
+        <div className="block">
+          <h3>2. 위치 정보 저장</h3>
+          <div className="project-detail-window-habing-page-map-content">
+            <img src="img/map2_1.png" width={700} />
+          </div>
+        </div>
+        <div className="block">
+          <h3>3. 위치 정보 조회</h3>
+          <div className="project-detail-window-habing-page-map-content">
+            <img src="img/map3_1.png" width={700} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
