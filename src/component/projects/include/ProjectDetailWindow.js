@@ -22,6 +22,10 @@ const ProjectDetailWindow = React.memo(() => {
     contentWindow.current.classList.remove("scrollable");
   }
 
+  function initScroll() {
+    contentWindow.current.scrollTo(0, 0);
+  }
+
   return (
     <div className="project-detail-window">
       <div className="project-detail-window-progress">
@@ -52,6 +56,7 @@ const ProjectDetailWindow = React.memo(() => {
             page={page}
             makeScrollable={makeScrollable}
             makeNonScrollable={makeNonScrollable}
+            initScroll={initScroll}
           />
         ) : null}
       </div>

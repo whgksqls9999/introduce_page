@@ -11,6 +11,7 @@ const ProjectDetailWindowHabing = React.memo((props) => {
 
   const makeScrollable = props.makeScrollable;
   const makeNonScrollable = props.makeNonScrollable;
+  const initScroll = props.initScroll;
 
   return (
     <>
@@ -25,24 +26,28 @@ const ProjectDetailWindowHabing = React.memo((props) => {
         <ProjectDetailWindowHabingPage2
           page={page}
           makeScrollable={makeScrollable}
+          initScroll={initScroll}
         />
       ) : null}
       {curPage === 2 ? (
         <ProjectDetailWindowHabingPage3
           page={page}
           makeScrollable={makeScrollable}
+          initScroll={initScroll}
         />
       ) : null}
       {curPage === 3 ? (
         <ProjectDetailWindowHabingPage4
           page={page}
           makeScrollable={makeScrollable}
+          initScroll={initScroll}
         />
       ) : null}
       {curPage === 4 ? (
         <ProjectDetailWindowHabingPage5
           page={page}
           makeScrollable={makeScrollable}
+          initScroll={initScroll}
         />
       ) : null}
       {curPage === 5 ? (
@@ -111,9 +116,11 @@ function ProjectDetailWindowHabingPage1(props) {
 function ProjectDetailWindowHabingPage2(props) {
   let page = props.page;
   const makeScrollable = props.makeScrollable;
+  const initScroll = props.initScroll;
 
   useEffect(() => {
     makeScrollable();
+    initScroll();
   }, []);
   return (
     <div className="project-detail-window-habing-page" ref={page}>
@@ -125,9 +132,11 @@ function ProjectDetailWindowHabingPage2(props) {
 function ProjectDetailWindowHabingPage3(props) {
   let page = props.page;
   const makeScrollable = props.makeScrollable;
+  const initScroll = props.initScroll;
 
   useEffect(() => {
     makeScrollable();
+    initScroll();
   }, []);
   return (
     <div className="project-detail-window-habing-page" ref={page}>
@@ -138,13 +147,14 @@ function ProjectDetailWindowHabingPage3(props) {
 function ProjectDetailWindowHabingPage4(props) {
   let page = props.page;
   const makeScrollable = props.makeScrollable;
-
+  const initScroll = props.initScroll;
   useEffect(() => {
     makeScrollable();
+    initScroll();
   }, []);
   return (
     <div className="project-detail-window-habing-page" ref={page}>
-      <h2>로그인/로그아웃</h2>
+      <h2>로그인 / 로그아웃</h2>
     </div>
   );
 }
@@ -152,9 +162,10 @@ function ProjectDetailWindowHabingPage4(props) {
 function ProjectDetailWindowHabingPage5(props) {
   let page = props.page;
   const makeScrollable = props.makeScrollable;
-
+  const initScroll = props.initScroll;
   useEffect(() => {
     makeScrollable();
+    initScroll();
   }, []);
   return (
     <div className="project-detail-window-habing-page" ref={page}>
@@ -172,7 +183,7 @@ function ProjectDetailWindowHabingPage6(props) {
   }, []);
   return (
     <div className="project-detail-window-habing-page" ref={page}>
-      <h2>정리</h2>
+      <h2>정 리</h2>
     </div>
   );
 }
