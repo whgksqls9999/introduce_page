@@ -398,9 +398,11 @@
   height: 100%;
   width: calc(100% - 40px);
   border-bottom: 3px solid black;
-  overflow-y: scroll;
 }
 
+.scrollable {
+  overflow-y: scroll;
+}
 .project-detail-window-habing{
   height: 100%;
 }

@@ -9,12 +9,15 @@ import Progress from "./component/common/Progress.js";
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const App = React.memo(() => {
-  let [page, setPage] = useState(0);
+  const [page, setPage] = useState(0);
+  const main = useRef(null);
   const containers = document.getElementsByClassName("view");
   let lastPage = containers.length - 1;
-  const main = useRef(null);
+
+  let isProjectOpen = useSelector((state) => state.isProjectOpen);
 
   useEffect(() => {
     // page 값 변화시 스크롤 이동
@@ -41,13 +44,19 @@ const App = React.memo(() => {
     // 마우스 휠 굴려서 페이지 이동
     window.addEventListener("wheel", wheelHandle, { passive: false });
 
+    // 프로젝트 상세 정보 페이지 오픈시 스크롤 이벤트 제거
+    if (isProjectOpen === true) {
+      window.removeEventListener("wheel", wheelHandle);
+      window.removeEventListener("keyup", keyupHandle);
+    }
+
     return () => {
       // 이벤트 리스너 제거
       window.removeEventListener("resize", resizeHandle);
       window.removeEventListener("wheel", wheelHandle);
       window.removeEventListener("keyup", keyupHandle);
     };
-  }, [page]);
+  }, [page, isProjectOpen]);
 
   function resizeHandle() {
     doScrollMove(false);
