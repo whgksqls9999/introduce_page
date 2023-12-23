@@ -1,8 +1,8 @@
 let infos = [
   {
     id: 0,
-    lang: ["javascript", "Java"],
-    framwork: ["Vue.js", "React", "Spring", "gsap", "fontawesome"],
+    front: ["javascript", "Java"],
+    back: ["Vue.js", "React", "Spring", "gsap", "fontawesome"],
     tool: ["notion", "figma"],
   },
   {

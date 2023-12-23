@@ -9,12 +9,12 @@ function InfoDetailContentSelect(props) {
         <div className="info-detail-content-select">
           <ul className="info-detail-content-skills">
             <li>
-              <div>● Language</div>
-              <div>{info.lang.join(" ")}</div>
+              <div>● Frontend</div>
+              <div>{info.front.join(" ")}</div>
             </li>
             <li>
-              <div>● Framework/Library</div>
-              <div>{info.framwork.join(" ")}</div>
+              <div>● Backend</div>
+              <div>{info.back.join(" ")}</div>
             </li>
             <li>
               <div>● Tool</div>

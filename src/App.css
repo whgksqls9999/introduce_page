@@ -312,7 +312,7 @@
 .projects-detail-window {
   width: 1100px;
   border: 1px solid white;
-  height: 700px;
+  height: 750px;
   background-color: rgb(220, 220, 220);
   animation: doOpenWindow 1s;
   position: relative;
@@ -333,7 +333,7 @@
   margin: 0.4rem 0 0.4rem 1rem;
 }
 
-.project-detail-window-habing-page-map-content{
+.project-detail-window-habing-page-content{
   display: flex;
 }
 
