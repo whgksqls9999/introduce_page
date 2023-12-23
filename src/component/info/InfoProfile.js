@@ -1,7 +1,9 @@
 export default function InfoProfile() {
   return (
     <div className="info-profile">
-      <div className="profile-img"></div>
+      <div className="profile-img">
+        <img src="img/pic.jpg" width={160} />
+      </div>
       <div className="profile-info">
         <div className="profile-name">조한빈</div>
         <div className="profile-name-eng">JoHanbin</div>
