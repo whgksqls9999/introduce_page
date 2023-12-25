@@ -6,59 +6,71 @@ const ProjectDetailWindowHabing = React.memo((props) => {
   let project = projects[0];
   let curPage = props.page;
 
-  const content = useRef(null);
   const page = useRef(null);
 
   const makeScrollable = props.makeScrollable;
   const makeNonScrollable = props.makeNonScrollable;
   const initScroll = props.initScroll;
 
-  return (
-    <>
-      {curPage === 0 ? (
+  let content;
+  switch (curPage) {
+    case 0:
+      content = (
         <ProjectDetailWindowHabingPage1
           page={page}
           project={project}
           makeNonScrollable={makeNonScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 1 ? (
+      );
+      break;
+    case 1:
+      content = (
         <ProjectDetailWindowHabingPage2
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 2 ? (
+      );
+      break;
+    case 2:
+      content = (
         <ProjectDetailWindowHabingPage3
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 3 ? (
+      );
+      break;
+    case 3:
+      content = (
         <ProjectDetailWindowHabingPage4
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 4 ? (
+      );
+      break;
+    case 4:
+      content = (
         <ProjectDetailWindowHabingPage5
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 5 ? (
+      );
+      break;
+    case 5:
+      content = (
         <ProjectDetailWindowHabingPage6
           page={page}
           makeNonScrollable={makeNonScrollable}
         />
-      ) : null}
-    </>
-  );
+      );
+      break;
+  }
+
+  return <>{content}</>;
 });
 
 function ProjectDetailWindowHabingPage1(props) {
@@ -159,10 +171,10 @@ function ProjectDetailWindowHabingPage2(props) {
             <div>3. gsap.to() 메서드를 사용해 최종 상태 지정</div>
             <img src="img/scroll6.png" width={400} />
           </div>
-          <div className="block">
+          {/* <div className="block">
             <h3>■ 고찰</h3>
             <div>1. </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -185,10 +197,10 @@ function ProjectDetailWindowHabingPage3(props) {
         <div className="block">
           <h3>■ 활용 기술 : 카카오맵 API</h3>
           <div>
-            - 주어진 프로젝트 진행 시간을 고려했을 때, 예제로서 키워드 검색
-            기능을 제공하는 카카오맵 API를 통해 빠른 학습이 가능하였고, 이를
-            통해 <span className="black emphasize">개발 시간 단축</span>이
-            가능한 카카오맵 API를 적용
+            - 주어진 프로젝트 진행 시간을 고려했을 때, 공식적으로 키워드 검색
+            기능 예제를 제공하고 있는 카카오맵 API를 통해 빠른 학습이
+            가능하였고, <span className="black emphasize">개발 시간 단축</span>
+            에 도움이 될 것이라 생각해 적용
           </div>
         </div>
         <div className="block">
@@ -236,7 +248,8 @@ function ProjectDetailWindowHabingPage4(props) {
     <div className="project-detail-window-habing-page" ref={page}>
       <h2>로그인 / 로그아웃</h2>
       <div className="block">
-        <h3>■ 활용 기술 : 웹 스토리지 - 세션 스토리지</h3>
+        <h3>■ 활용 기술 : 세션 스토리지</h3>
+        <div>1. 세션 스토리지</div>
         <div>
           - 페이지 변경 시마다 로그인 여부 체크를 위해 불필요한 서버와의 통신을
           하지 않기 위해 사용
@@ -245,6 +258,10 @@ function ProjectDetailWindowHabingPage4(props) {
           - 브라우저가 닫히면 로그인 정보가 사라져야 하므로 로컬 스토리지가 아닌
           세션 스토리지를 이용
         </div>
+        {/* <div>2. JWT(Json Web Token)</div>
+        <div>- 로그인 시 보다 명확한 인증 기능 확보를 위해 사용</div>
+        <div>3. axios</div> */}
+        <div></div>
       </div>
       <div className="block">
         <h3>■ 플로우 차트</h3>
@@ -253,18 +270,47 @@ function ProjectDetailWindowHabingPage4(props) {
       <div className="block">
         <h3>■ 구현 내용</h3>
         <div>1. 로그인</div>
-        <div className="project-detail-window-habing-page-content">
-          <img src="img/login2.png" width={500} />
-          <div>a\■</div>
+        {/* <div className="project-detail-window-habing-page-content"> */}
+        {/* </div> */}
+        <div className="block">
+          <img src="img/login2.png" width={700} />
+          <div>- axios를 활용한 login post 요청</div>
+          <div>- 요청 결과에 따라 상이한 작업 진행</div>
+        </div>
+        <div className="block">
+          <img src="img/login3.png" width={700} />
+          <div>
+            - 요청을 받아 DB 내 유저 데이터와 대조하여 ID, PW 유효성 검사
+          </div>
+          <div>- 유효하지 않은 사용자 : 토큰을 생성하지 않고 null 반환</div>
+          <div>
+            - 유효한 사용자 : 토큰에 아이디 정보를 담아 생성 후 토큰 반환
+          </div>
+        </div>
+        <div className="block">
+          <img src="img/login4.png" width={700} />
+          <div>
+            - 유효한 사용자의 경우, 유저의 아이디 정보와 함께 SALT로 특정
+            문자열을 추가해 토큰 생성
+          </div>
         </div>
       </div>
       <div className="block">
-        <div>2. 로그인 세션 체크</div>
-        <div className="project-detail-window-habing-page-content"></div>
+        <div className="block">
+          <div>2. 로그인 세션 체크</div>
+          <img src="img/login5.png" width={700} />
+          <div>- 컴포넌트 마운트 시, store에 작성된 로그인 체크 함수 호출</div>
+          <div>
+            - 로그인 체크 함수 : 세션 스토리지에 저장된 토큰 정보에서 유저
+            정보를 가져와 반환
+          </div>
+        </div>
       </div>
       <div className="block">
         <div>3. 로그아웃</div>
-        <div className="project-detail-window-habing-page-content"></div>
+        <img src="img/login6.png" width={700} />
+        <div>- 세션 스토리지에 저장된 토큰 정보 제거</div>
+        <div>- store에 저장된 loginUser 정보 제거</div>
       </div>
     </div>
   );
@@ -278,9 +324,23 @@ function ProjectDetailWindowHabingPage5(props) {
     makeScrollable();
     initScroll();
   }, []);
+
   return (
     <div className="project-detail-window-habing-page" ref={page}>
       <h2>게시글, 장소 좋아요 / 유저간 팔로잉</h2>
+      <div className="block">
+        <h3>■ 구현 내용</h3>
+        <img src="img/favor1.png" width={960} />
+        {/* <img src="img/favor2.png" width={700} /> */}
+        <img src="img/favor3.png" width={960} />
+        <div>
+          - 좋아요, 팔로잉 전/후 버튼을 각각 디자인한 후 조건부 렌더링을 통해
+          화면에 출력
+        </div>
+        <div>
+          - DB 테이블에 게시글 좋아요, 장소 찜하기 및 유저 팔로잉 정보 저장
+        </div>
+      </div>
     </div>
   );
 }

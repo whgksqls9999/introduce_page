@@ -1,9 +1,9 @@
 let infos = [
   {
     id: 0,
-    front: ["javascript", "Java"],
-    back: ["Vue.js", "React", "Spring", "gsap", "fontawesome"],
-    tool: ["notion", "figma"],
+    front: ["HTML5", "CSS3", "Javascript", "Vue.js", "React", "Redux"],
+    back: ["Java", "Spring Boot", "MySQL"],
+    tool: ["Notion", "Figma"],
   },
   {
     id: 1,

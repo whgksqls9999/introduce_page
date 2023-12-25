@@ -19,7 +19,7 @@ let projects = [
       "위치",
       "로그인",
       "좋아요/팔로잉",
-      "마무리",
+      // "마무리",
     ],
     github: "https://github.com/whgksqls9999/BINGPROJECT",
   },
@@ -30,17 +30,17 @@ let projects = [
     outline: "React를 활용한 개인 포트폴리오 사이트 구축",
     period: "23.11.27 ~ (진행중)",
     headCount: "1인",
-    content: [1, 2, 3, 4],
+    content: [1],
     github: "https://github.com/whgksqls9999/introduce_page",
   },
-  {
-    id: 2,
-    img: "img/introduce.jpg",
-    title: "테스트3",
-    outline: "테스트",
-    period: "23.11.27 ~ ",
-    headCount: "1인",
-  },
+  // {
+  //   id: 2,
+  //   img: "img/introduce.jpg",
+  //   title: "테스트3",
+  //   outline: "테스트",
+  //   period: "23.11.27 ~ ",
+  //   headCount: "1인",
+  // },
 ];
 
 export default projects;
