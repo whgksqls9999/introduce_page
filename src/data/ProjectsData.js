@@ -19,7 +19,7 @@ let projects = [
       "위치",
       "로그인",
       "좋아요/팔로잉",
-      "마무리",
+      // "마무리",
     ],
     github: "https://github.com/whgksqls9999/BINGPROJECT",
   },
