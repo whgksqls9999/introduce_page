@@ -6,59 +6,71 @@ const ProjectDetailWindowHabing = React.memo((props) => {
   let project = projects[0];
   let curPage = props.page;
 
-  const content = useRef(null);
   const page = useRef(null);
 
   const makeScrollable = props.makeScrollable;
   const makeNonScrollable = props.makeNonScrollable;
   const initScroll = props.initScroll;
 
-  return (
-    <>
-      {curPage === 0 ? (
+  let content;
+  switch (curPage) {
+    case 0:
+      content = (
         <ProjectDetailWindowHabingPage1
           page={page}
           project={project}
           makeNonScrollable={makeNonScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 1 ? (
+      );
+      break;
+    case 1:
+      content = (
         <ProjectDetailWindowHabingPage2
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 2 ? (
+      );
+      break;
+    case 2:
+      content = (
         <ProjectDetailWindowHabingPage3
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 3 ? (
+      );
+      break;
+    case 3:
+      content = (
         <ProjectDetailWindowHabingPage4
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 4 ? (
+      );
+      break;
+    case 4:
+      content = (
         <ProjectDetailWindowHabingPage5
           page={page}
           makeScrollable={makeScrollable}
           initScroll={initScroll}
         />
-      ) : null}
-      {curPage === 5 ? (
+      );
+      break;
+    case 5:
+      content = (
         <ProjectDetailWindowHabingPage6
           page={page}
           makeNonScrollable={makeNonScrollable}
         />
-      ) : null}
-    </>
-  );
+      );
+      break;
+  }
+
+  return <>{content}</>;
 });
 
 function ProjectDetailWindowHabingPage1(props) {
@@ -185,10 +197,10 @@ function ProjectDetailWindowHabingPage3(props) {
         <div className="block">
           <h3>■ 활용 기술 : 카카오맵 API</h3>
           <div>
-            - 주어진 프로젝트 진행 시간을 고려했을 때, 예제로서 키워드 검색
-            기능을 제공하는 카카오맵 API를 통해 빠른 학습이 가능하였고, 이를
-            통해 <span className="black emphasize">개발 시간 단축</span>이
-            가능한 카카오맵 API를 적용
+            - 주어진 프로젝트 진행 시간을 고려했을 때, 공식적으로 키워드 검색
+            기능 예제를 제공하고 있는 카카오맵 API를 통해 빠른 학습이
+            가능하였고, <span className="black emphasize">개발 시간 단축</span>
+            에 도움이 될 것이라 생각해 적용
           </div>
         </div>
         <div className="block">
@@ -236,7 +248,8 @@ function ProjectDetailWindowHabingPage4(props) {
     <div className="project-detail-window-habing-page" ref={page}>
       <h2>로그인 / 로그아웃</h2>
       <div className="block">
-        <h3>■ 활용 기술 : 웹 스토리지 - 세션 스토리지</h3>
+        <h3>■ 활용 기술 : 세션 스토리지, JWT</h3>
+        <div>1. 세션 스토리지</div>
         <div>
           - 페이지 변경 시마다 로그인 여부 체크를 위해 불필요한 서버와의 통신을
           하지 않기 위해 사용
@@ -245,6 +258,8 @@ function ProjectDetailWindowHabingPage4(props) {
           - 브라우저가 닫히면 로그인 정보가 사라져야 하므로 로컬 스토리지가 아닌
           세션 스토리지를 이용
         </div>
+        <div>2. JWT(Json Web Token)</div>
+        <div>- 로그인 시 보다 명확한 인증 기능 확보를 위해 사용</div>
       </div>
       <div className="block">
         <h3>■ 플로우 차트</h3>
@@ -255,7 +270,6 @@ function ProjectDetailWindowHabingPage4(props) {
         <div>1. 로그인</div>
         <div className="project-detail-window-habing-page-content">
           <img src="img/login2.png" width={500} />
-          <div>a\■</div>
         </div>
       </div>
       <div className="block">
